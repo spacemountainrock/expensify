@@ -8,7 +8,6 @@ import "../node_modules/normalize.css/normalize.css";
 import "react-dates/lib/css/_datepicker.css";
 import "./styles/style.scss";
 import "./firebase/firebase";
-import "./playground/playground";
 const store = configureStore();
 
 // const state = store.getState();
