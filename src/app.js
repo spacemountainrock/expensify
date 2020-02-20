@@ -10,6 +10,8 @@ import "../node_modules/normalize.css/normalize.css";
 import "react-dates/lib/css/_datepicker.css";
 import "./styles/style.scss";
 import { firebase } from "./firebase/firebase";
+import LoadingPage from "./components/LoadingPage";
+
 const store = configureStore();
 
 // const state = store.getState();
@@ -30,7 +32,7 @@ const renderApp = () => {
   }
 };
 
-ReactDOM.render(<p>Loading...</p>, document.getElementById("app"));
+ReactDOM.render(<LoadingPage />, document.getElementById("app"));
 
 firebase.auth().onAuthStateChanged(user => {
   if (user) {
@@ -42,7 +44,6 @@ firebase.auth().onAuthStateChanged(user => {
       }
     });
   } else {
-    console.log("hi");
     store.dispatch(logout());
     renderApp();
     history.push("/");
